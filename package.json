@@ -1,0 +1,22 @@
+{
+  "name": "epistemic-grounding",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "smoke": "bun Tools/Orchestrator.ts",
+    "test": "bun Tools/run_unit_tests.ts",
+    "bun-tests": "bun Tools/run_unit_tests.ts && bun Tools/unit_tests_stageC_E.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts,.js",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.4.2",
+    "@types/node": "^20.11.0"
+  }
+}

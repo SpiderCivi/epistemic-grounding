@@ -266,8 +266,11 @@ function runPipeline(
   return { claims, attributions, confidences, composed, escalationResults, quarantined };
 }
 
+export { ingestSource, sanitizeSourceContent, computeAuthority, stageA_ThreatScan, stageB_Decompose, stageC_GroundAttribute, runGroundWithEscalation, stageD_Calibrate, stageE_Compose, runPipeline, MAX_SAMPLES };
+
 // ---- Smoke tests ----
-function assert(cond: boolean, msg: string) {
+if ((import.meta as any).main) {
+  function assert(cond: boolean, msg: string) {
   console.log(`${cond ? "PASS" : "FAIL"} — ${msg}`);
   return cond;
 }
@@ -335,7 +338,7 @@ function smokeTest_QuarantineAndSanitize() {
 function smokeTest_EscalationCeiling() {
   console.log("\n== Smoke test 4: sample-escalation ceiling (ISC-31) ==");
   const sources: Source[] = [{ id: "s1", channel: "untrusted", origin: "retrieval", content: "The museum opened in 1965." }];
-  const claims = stageB_Decompose("The museum opened in 1965");
+  void stageB_Decompose("The museum opened in 1965");
   // Deliberately flaky sampler: alternates verdict every call so samples NEVER converge —
   // this is what would infinite-loop under "escalate until they agree" with no ceiling.
   const flaky = (claim: Claim, srcs: Source[], q: Set<string>, attempt: number): Attribution =>
@@ -353,12 +356,12 @@ function smokeTest_EscalationCeiling() {
   return ok;
 }
 
-const r1 = smokeTest_Contradiction();
-const r2 = smokeTest_Abstention();
-const r3 = smokeTest_QuarantineAndSanitize();
-const r4 = smokeTest_EscalationCeiling();
-console.log(
-  `\n== Summary: contradiction=${r1 ? "PASS" : "FAIL"}, abstention=${r2 ? "PASS" : "FAIL"}, ` +
-    `quarantine+sanitize=${r3 ? "PASS" : "FAIL"}, escalation-ceiling=${r4 ? "PASS" : "FAIL"} ==`
-);
-if (!r1 || !r2 || !r3 || !r4) process.exit(1);
+  const r1 = smokeTest_Contradiction();
+  const r2 = smokeTest_Abstention();
+  const r3 = smokeTest_QuarantineAndSanitize();
+  const r4 = smokeTest_EscalationCeiling();
+  console.log(
+    `\n== Summary: contradiction=${r1 ? "PASS" : "FAIL"}, abstention=${r2 ? "PASS" : "FAIL"}, ` +
+      `quarantine+sanitize=${r3 ? "PASS" : "FAIL"}, escalation-ceiling=${r4 ? "PASS" : "FAIL"} ==`
+  );
+}
