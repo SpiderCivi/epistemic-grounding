@@ -13,10 +13,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Print environment
+        run: |
+          echo "--- Environment ---"
+          node -v || true
+          bun -v || true
+          uname -a || true
+          echo "-------------------"
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: stable
+
+      - name: Cache npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -25,13 +41,7 @@ jobs:
 
       - name: Install node deps
         run: |
-          npm install
+          npm ci --prefer-offline --no-audit
 
-      - name: Run typecheck
-        run: npm run typecheck
-
-      - name: Run lint
-        run: npm run lint
-
-      - name: Run smoke tests
-        run: bun Tools/Orchestrator.ts
+      - name: Run full check (typecheck, lint, tests)
+        run: npm run check

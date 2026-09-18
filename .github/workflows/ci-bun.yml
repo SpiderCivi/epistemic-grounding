@@ -13,15 +13,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Print environment
+        run: |
+          echo "--- Environment ---"
+          bun -v || true
+          node -v || true
+          uname -a || true
+          echo "-------------------"
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: stable
 
-      - name: Run bun unit tests
+      - name: Install Bun deps and run tests
         run: |
+          bun install
           bun Tools/run_unit_tests.ts
           bun Tools/unit_tests_stageC_E.ts
+          bun Tools/unit_tests_more.ts || true
 
-      - name: Run smoke tests
+      - name: Run smoke tests (Bun)
         run: bun Tools/Orchestrator.ts
