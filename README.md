@@ -1,5 +1,7 @@
 # Epistemic Grounding
 
+[![CI](https://github.com/SpiderCivi/epistemic-grounding/actions/workflows/ci.yml/badge.svg)](https://github.com/SpiderCivi/epistemic-grounding/actions)
+
 A grounded-answer pipeline: **Threat Scan → Decompose → Ground & Attribute → Calibrate → Compose**.
 
 Given a question, a draft answer, and a set of sources, the pipeline decomposes the draft into
