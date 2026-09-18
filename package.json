@@ -17,7 +17,7 @@
     "@typescript-eslint/parser": "6.11.0",
     "c8": "^8.0.0",
     "eslint": "^8.49.0",
-    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-prettier": "^10.1.8",
     "prettier": "^2.8.8",
     "typescript": "5.4.2",
     "@types/node": "^20.11.0"
