@@ -52,6 +52,25 @@ Run it with:
 bun Tools/Orchestrator.ts
 ```
 
+CI status
+
+![CI (Node)](https://github.com/SpiderCivi/epistemic-grounding/actions/workflows/ci.yml/badge.svg)
+![CI (Bun)](https://github.com/SpiderCivi/epistemic-grounding/actions/workflows/ci-bun.yml/badge.svg)
+
+How to run locally
+
+```bash
+# with Bun
+bun install
+bun run smoke
+
+# or, with npm (dev deps installed)
+npm install
+npm run typecheck
+npm run lint
+npm run test
+```
+
 This executes 4 built-in smoke scenarios (contradiction, abstention, quarantine + sanitization +
 authority-spoofing, escalation ceiling) and prints PASS/FAIL for each — 18/18 assertions passing
 as of the current revision.

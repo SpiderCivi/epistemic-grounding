@@ -8,7 +8,8 @@
     "bun-tests": "bun Tools/run_unit_tests.ts && bun Tools/unit_tests_stageC_E.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.js",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "check": "npm run typecheck && npm run lint && npm run test"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.11.0",
