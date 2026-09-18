@@ -1,4 +1,7 @@
 node_modules/
 .npm-cache/
-package-lock.json
+.DS_Store
+
+# Keep `package-lock.json` committed for CI reproducibility
+!package-lock.json
 .DS_Store
