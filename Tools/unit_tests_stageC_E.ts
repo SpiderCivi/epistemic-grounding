@@ -14,9 +14,9 @@ console.log("== Extended unit tests: stageC and stageE ==");
 const sources = [
   { id: "s1", channel: "trusted", origin: "system", content: "The museum opened in 1965." },
   { id: "s2", channel: "untrusted", origin: "retrieval", content: "contradiction-marker: the museum opened in 1970." },
-];
+] as any;
 
-const ingested = sources.map(ingestSource);
+const ingested = (sources as any[]).map(ingestSource);
 const claim = { id: "c1", text: "The museum opened in 1965" };
 const attribution = stageC_GroundAttribute(claim, ingested, new Set());
 ok(attribution.support.length >= 0, "stageC returns an attribution structure");

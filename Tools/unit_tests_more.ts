@@ -24,7 +24,7 @@ ok(typeof attr.tainted === "boolean", "attribution has tainted boolean");
 const sources = [
   { id: "s1", channel: "untrusted", origin: "retrieval", content: "entails: fact x" },
   { id: "s2", channel: "untrusted", origin: "user_paste", content: "contradiction-marker: fact x" },
-];
+] as any;
 const res = runPipeline("Q", "fact x", sources);
 ok(res.attributions.length > 0, "pipeline attribution produced");
 
