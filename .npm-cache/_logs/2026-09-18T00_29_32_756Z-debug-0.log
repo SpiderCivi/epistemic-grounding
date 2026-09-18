@@ -1,0 +1,39 @@
+0 verbose cli /usr/local/Cellar/node@22/22.22.3/bin/node /usr/local/opt/node@22/bin/npm
+1 info using npm@10.9.8
+2 info using node@v22.22.3
+3 silly config load:file:/usr/local/Cellar/node@22/22.22.3/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/riccardo/Desktop/Claude Projects/epistemic-grounding/.npmrc
+5 silly config load:file:/Users/riccardo/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install" "--cache" "./.npm-cache" "--no-audit" "--no-fund"
+9 verbose logfile logs-max:10 dir:/Users/riccardo/Desktop/Claude Projects/epistemic-grounding/.npm-cache/_logs/2026-09-18T00_29_32_756Z-
+10 verbose logfile /Users/riccardo/Desktop/Claude Projects/epistemic-grounding/.npm-cache/_logs/2026-09-18T00_29_32_756Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+13 silly idealTree buildDeps
+14 silly fetch manifest @types/node@^20.11.0
+15 silly packumentCache full:https://registry.npmjs.org/@types%2fnode cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/@types%2fnode 952ms (cache miss)
+17 silly packumentCache full:https://registry.npmjs.org/@types%2fnode set size:undefined disposed:false
+18 silly placeDep ROOT @types/node@20.19.43 OK for: epistemic-grounding@0.1.0 want: ^20.11.0
+19 silly fetch manifest undici-types@~6.21.0
+20 silly packumentCache full:https://registry.npmjs.org/undici-types cache-miss
+21 http fetch GET 200 https://registry.npmjs.org/undici-types 102ms (cache miss)
+22 silly packumentCache full:https://registry.npmjs.org/undici-types set size:undefined disposed:false
+23 silly placeDep ROOT undici-types@6.21.0 OK for: @types/node@20.19.43 want: ~6.21.0
+24 silly reify moves {}
+25 http cache @types/node@https://registry.npmjs.org/@types/node/-/node-20.19.43.tgz 1ms (cache hit)
+26 http cache undici-types@https://registry.npmjs.org/undici-types/-/undici-types-6.21.0.tgz 0ms (cache hit)
+27 silly tarball no local data for @types/node@https://registry.npmjs.org/@types/node/-/node-20.19.43.tgz. Extracting by manifest.
+28 silly tarball no local data for undici-types@https://registry.npmjs.org/undici-types/-/undici-types-6.21.0.tgz. Extracting by manifest.
+29 http fetch GET 200 https://registry.npmjs.org/@types/node/-/node-20.19.43.tgz 178ms (cache miss)
+30 http fetch GET 200 https://registry.npmjs.org/undici-types/-/undici-types-6.21.0.tgz 327ms (cache miss)
+31 silly ADD node_modules/undici-types
+32 silly ADD node_modules/@types/node
+33 verbose cwd /Users/riccardo/Desktop/Claude Projects/epistemic-grounding
+34 verbose os Darwin 24.6.0
+35 verbose node v22.22.3
+36 verbose npm  v10.9.8
+37 verbose exit 0
+38 info ok

@@ -1,0 +1,27 @@
+name: CI (Bun)
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  bun-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: stable
+
+      - name: Run bun unit tests
+        run: |
+          bun Tools/run_unit_tests.ts
+          bun Tools/unit_tests_stageC_E.ts
+
+      - name: Run smoke tests
+        run: bun Tools/Orchestrator.ts
