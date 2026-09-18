@@ -39,7 +39,11 @@ jobs:
 
       - name: Install node deps
         run: |
-          npm ci --prefer-offline --no-audit
+          if [ -f package-lock.json ]; then
+            npm ci --prefer-offline --no-audit
+          else
+            npm install --prefer-offline --no-audit
+          fi
 
       - name: Run full check (typecheck, lint, tests)
         run: npm run check
